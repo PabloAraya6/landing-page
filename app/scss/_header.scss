@@ -7,7 +7,8 @@
     &__logo {
 
         img {
-
+            width: 8.8125rem;
+            height: 1.375rem;
         }
 
     }
@@ -29,12 +30,14 @@
     }
 
     &__links {
-
         a {
             color: $grayishBlue;
             font-size: $font-sm;
-        }
 
+            &:not(:last-child) {
+                margin-right: 32px;
+            }
+        }
     }
 
     &__cta {
