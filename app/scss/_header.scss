@@ -1,5 +1,34 @@
 .header {
 
+    &.open {
+
+        .overlay {
+            display: block;
+        }
+
+        .header__menu {
+            > span:first-child {
+                transform: rotate(45deg);
+            }   
+            > span:nth-child(2) {
+                opacity: 0;
+            }
+            > span:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    .overlay {
+        opacity: 0;
+        position:fixed;
+        top: 3.75rem;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        background-image: linear-gradient($darkBlue, transparent);
+    }
+
     nav {
         padding: 1.065rem 1.5rem;
     }
@@ -27,19 +56,6 @@
             }
 
         }
-
-        &.open {
-            > span:first-child {
-                transform: rotate(45deg);
-            }   
-            > span:nth-child(2) {
-                opacity: 0;
-            }
-            > span:last-child {
-                transform: rotate(-45deg);
-            }
-        }
-
     }
 
     &__links {
@@ -85,5 +101,6 @@
         &:hover {
             opacity: 0.75;
         }
-    }
+    }    
 }
+
