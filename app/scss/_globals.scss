@@ -1,29 +1,79 @@
-html{
+html {
     font-size: 100%;
     box-sizing: border-box;
 }
 
-*,*::before, *::after{
+*,
+*::before,
+*::after {
     box-sizing: inherit;
 }
 
-body{
-    margin:0;
+body {
+    margin: 0;
     padding: 0;
-    font-family: 'Public Sans', sans-serif;
+    font-family: "Public Sans", sans-serif;
     font-size: $font-med;
     font-weight: 300;
     color: $grayishBlue;
     line-height: 1.3;
+
+    @include breakpoint-up(large){
+        font-size: $font-lg;
+    }
+
+    &.noscroll {
+        overflow: hidden;
+    }
 }
 
-a,a:visited, a:hover {
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+
+a,
+a:visited,
+a:hover {
     text-decoration: none;
 }
 
+.container {
+    max-width: 69.735rem;
+    margin: 0 auto;
+    &--pall {
+        padding-bottom: 2.25rem;
+        padding-top: 2.25rem;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+    &--py {
+        padding-bottom: 2.25rem;
+        padding-top: 2.25rem;
+    }
+    &--px {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+    &--pt {
+        padding-top: 2.25rem;
+    }
+    &--pr {
+        padding-right: 1.5rem;
+    }
+    &--pb {
+        padding-bottom: 2.25rem;
+    }
+    &--pl {
+        padding-left: 1.5rem;
+    }
+    
+}
+
 // flexbox
-.flex{
-    display:flex;
+.flex {
+    display: flex;
 
     &-jc-sb {
         justify-content: space-between;
@@ -39,27 +89,34 @@ a,a:visited, a:hover {
 }
 
 //buttons
-button, .button {
-
+button,
+.button {
+    display: inline-block;
     padding: 0.875rem 2.1875rem;
-    background: linear-gradient(to right,$limeGreen,$brightCyan);
+    background: linear-gradient(to right, $limeGreen, $brightCyan);
     border: 0;
     border-radius: 50px;
-    cursor:pointer;
-    color:$white;
+    cursor: pointer;
+    color: $white;
+    font-weight: 400;
+    font-size: $font-sm;
+    transition: opacity 300ms ease-in-out;
 
+    &:hover {
+        opacity: 0.75;
+    }
 }
 // visibility
 .hide-for-mobile {
     //hide for tablet and mobile
-    @include breakpoint-down(medium){
+    @include breakpoint-down(medium) {
         display: none;
     }
 }
 
 .hide-for-desktop {
     //hide for desktop viewport widhts
-    @include breakpoint-up(large){
+    @include breakpoint-up(large) {
         display: none;
     }
 }
