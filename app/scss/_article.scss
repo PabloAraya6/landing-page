@@ -24,11 +24,8 @@
     }
 
     &__item {
-        padding: 1.875rem 1.875rem 2.5rem 1.875rem;
-
-        @include breakpoint-up(medium) {
-            padding: 1.875rem 1.5625rem;
-        }
+        border-radius: 0.3125rem;
+        overflow: hidden;
     }
 
     &__image {
@@ -39,19 +36,30 @@
     }
 
     &__text {
+        background-color: $white;
+        padding: 1.875rem 1.875rem 2.5rem 1.875rem;
+        color: $grayishBlue;
 
+        @include breakpoint-up(medium) {
+            padding: 1.875rem 1.5625rem;
+        }
     }
 
     &__author {
-
+        font-size: 0.625rem;
+        margin-bottom: 0.75rem;
     }
 
     &__title {
-
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+        font-size: 1.0625rem;
+        color: $darkBlue;
     }
 
     &__description {
-        
+        font-size: 0.8125rem;
+ 
     }
 
 }
