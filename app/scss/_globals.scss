@@ -19,8 +19,8 @@ body {
     line-height: 1.3;
     min-height: 300vh;
     overflow-x: hidden;
-    
-    @include breakpoint-up(large){
+
+    @include breakpoint-up(large) {
         font-size: $font-lg;
     }
 
@@ -42,7 +42,7 @@ h1 {
     font-size: 2.31rem;
     margin-bottom: 1.5rem;
 
-    @include breakpoint-up(large){
+    @include breakpoint-up(large) {
         font-size: $font-xlg;
     }
 }
@@ -51,7 +51,7 @@ h2 {
     font-size: 1.875rem;
     margin-bottom: 1.5625rem;
 
-    @include breakpoint-up(large){
+    @include breakpoint-up(large) {
         font-size: 2.25rem;
         margin-bottom: 2.25rem;
     }
@@ -76,7 +76,7 @@ a:hover {
         padding-bottom: 4.375rem;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
-        @include breakpoint-up(large){
+        @include breakpoint-up(large) {
             padding-top: 6rem;
             padding-bottom: 6rem;
         }
@@ -84,7 +84,7 @@ a:hover {
     &--py {
         padding-bottom: 4.375rem;
         padding-top: 4.375rem;
-        @include breakpoint-up(large){
+        @include breakpoint-up(large) {
             padding-top: 6rem;
             padding-bottom: 6rem;
         }
@@ -95,7 +95,7 @@ a:hover {
     }
     &--pt {
         padding-top: 4.375rem;
-        @include breakpoint-up(large){
+        @include breakpoint-up(large) {
             padding-top: 6rem;
         }
     }
@@ -104,14 +104,13 @@ a:hover {
     }
     &--pb {
         padding-bottom: 4.375rem;
-        @include breakpoint-up(large){
+        @include breakpoint-up(large) {
             padding-bottom: 6rem;
         }
     }
     &--pl {
         padding-left: 1.5rem;
     }
-    
 }
 
 // flexbox
@@ -134,9 +133,10 @@ a:hover {
 //buttons
 button,
 .button {
+    position: relative;
     display: inline-block;
     padding: 0.875rem 2.1875rem;
-    background: linear-gradient(to right, $limeGreen, $brightCyan);
+    background-image: linear-gradient(to right, $limeGreen, $brightCyan);
     border: 0;
     border-radius: 50px;
     cursor: pointer;
@@ -144,9 +144,21 @@ button,
     font-weight: 400;
     font-size: $font-sm;
     transition: opacity 300ms ease-in-out;
-
-    &:hover {
-        opacity: 0.75;
+    overflow: hidden;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.25);
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+    }
+    &:hover::before {
+        opacity: 1;
     }
 }
 // visibility
